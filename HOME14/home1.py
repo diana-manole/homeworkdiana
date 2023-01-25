@@ -29,7 +29,7 @@ cursor1 = finddb.cursor()
 query1='SELECT(year),(month) FROM predicator.finances '
 cursor1.execute(query1)
 results1 = cursor.fetchall()
-#print(results1)
+print(results1)
 
 
 
@@ -38,6 +38,7 @@ y=list(map(lambda y:str(y[1]),results))
 y1=list(map(lambda y:str(y[1]),results))
 y2=list(map(lambda y:str(y[1]),results))
 
+print(x)
 fig,axs =plt.subplots()
 
 """

@@ -1,0 +1,11 @@
+{% extends "finapp/base.html" %}
+{% block content %}
+  <p>Month</p>
+  <ul>
+    {% for month in month %}
+      <p><a href="{% url 'finapp:month' month.id %}">{{ month }}</a></p>
+    {% empty %}
+      <li>No month have been added yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

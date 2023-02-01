@@ -1,0 +1,11 @@
+{% extends "finapp/base.html" %}
+{% block content %}
+<p>Business</p>
+<ul>
+  {% for business in business %}
+    <p><a href="{% url 'finapp:business' business.id %}">{{ business }}</a></p>
+  {% empty %}
+    <li>No business have been added yet.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

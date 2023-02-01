@@ -1,0 +1,17 @@
+{% extends 'finapp/base.html' %}
+{% block content %}
+  <p>Year: {{ year }}</p>
+  <p>Month:</p>
+  <ul>
+  {% for month in month %}
+    <li>
+      <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+      <p>{{ entry.text|linebreaks }}</p>
+    </li>
+  {% empty %}
+    <li>Call David to fill the list asap!</li>
+  {% endfor %}
+  </ul>
+{% endblock content %}
+
+

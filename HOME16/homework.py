@@ -1,9 +1,10 @@
-'''2 ввод данных в базу из формы
-все в СВОЙ git'''
+"""2 ввод данных в базу из формы
+все в СВОЙ git"""
 import mysql.connector
 import sys
 import flet as ft
 from flet import Page, IconButton, Text, TextField
+
 """
 class DataHelp:
     def __init__(self):
@@ -32,67 +33,72 @@ class DataHelp:
         self.cursor.close()
         """
 
-def main(page:Page):
 
+def main(page: Page):
     def submit1(e):
         try:
             year = int(yearText.value)
             monthText.focus()
         except:
             page.dialog = dlg
-            dlg.open=True
+            dlg.open = True
             yearText.focus()
             page.update()
 
-        
     def submit2(e):
         try:
             month = int(monthText.value)
             businessText.focus()
         except:
             page.dialog = dlg
-            dlg.open=True
+            dlg.open = True
             monthText.focus()
             page.update()
-            
+
     def submit3(e):
         try:
             bussines = int(businessText.value)
             incomeText.focus()
         except:
             page.dialog = dlg
-            dlg.open=True
+            dlg.open = True
             businessText.focus()
             page.update()
-            
-    def close_dlg(e):
-        dlg.open=False
-        page.update()    
 
-    dlg = ft.AlertDialog(modal=True,
-                         title=ft.Text("Data error"),
-                         content=ft.Text("Please check if data is integer"),
-                         actions=[ft.TextButton("Ok", on_click=close_dlg)])
-    
+    def close_dlg(e):
+        dlg.open = False
+        page.update()
+
+    dlg = ft.AlertDialog(
+        modal=True,
+        title=ft.Text("Data error"),
+        content=ft.Text("Please check if data is integer"),
+        actions=[ft.TextButton("Ok", on_click=close_dlg)],
+    )
+
     yearLabel = Text("Year: ", color=ft.colors.RED, size=40)
-    yearText  = TextField(value="", color=ft.colors.BLUE, text_size=40, on_submit=submit1)
-    yearRow = ft.Row([yearLabel,yearText],alignment='center')
+    yearText = TextField(
+        value="", color=ft.colors.BLUE, text_size=40, on_submit=submit1
+    )
+    yearRow = ft.Row([yearLabel, yearText], alignment="center")
 
     monthLabel = Text("Month: ", color=ft.colors.RED, size=40)
-    monthText = TextField(value="", color=ft.colors.BLUE, text_size=40, on_submit=submit2)
-    monthRow = ft.Row([monthLabel, monthText], alignment='center')
+    monthText = TextField(
+        value="", color=ft.colors.BLUE, text_size=40, on_submit=submit2
+    )
+    monthRow = ft.Row([monthLabel, monthText], alignment="center")
 
     businessLabel = Text("Business: ", color=ft.colors.RED, size=40)
-    businessText = TextField(value="", color=ft.colors.BLUE, text_size=40,on_submit=submit3)
-    businessRow = ft.Row([businessLabel, businessText], alignment='center')
+    businessText = TextField(
+        value="", color=ft.colors.BLUE, text_size=40, on_submit=submit3
+    )
+    businessRow = ft.Row([businessLabel, businessText], alignment="center")
 
     incomeLabel = Text("Income: ", color=ft.colors.RED, size=40)
     incomeText = TextField(value="", color=ft.colors.BLUE, text_size=40)
-    incomeRow = ft.Row([incomeLabel, incomeText], alignment='center')
-    
-    page.add(ft.Column([yearRow,monthRow, businessRow, incomeRow]))
-    
-    
+    incomeRow = ft.Row([incomeLabel, incomeText], alignment="center")
+
+    page.add(ft.Column([yearRow, monthRow, businessRow, incomeRow]))
 
 
-#ft.app(target=main)
+# ft.app(target=main)

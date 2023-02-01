@@ -12,26 +12,30 @@ app = Flask(__name__)
 #     4 данные какого то бизнеса
 #     5 мы создаем метод который будет использовать все эти параметры
 
-app = Flask('API_1')
-app.config['JSON_AS_ASCII'] = False
+app = Flask("API_1")
+app.config["JSON_AS_ASCII"] = False
 d = DataHelp()
-@app.route('/', methods=['GET'])
+
+
+@app.route("/", methods=["GET"])
 def test():
-    return 'Hello!!! I am working!!!'
-@app.route('/api/v1/search', methods=['GET'])
+    return "Hello!!! I am working!!!"
+
+
+@app.route("/api/v1/search", methods=["GET"])
 def search():
-    if 'id' in request.args:
+    if "id" in request.args:
         id = int(request.args["id"])
-        return {"id":id, "name": str(id)+': the is'}
-    return {'id': 200, 'name': 'test'}
+        return {"id": id, "name": str(id) + ": the is"}
+    return {"id": 200, "name": "test"}
 
 
-@app.route('/api/v1/income', methods=['GET'])
+@app.route("/api/v1/income", methods=["GET"])
 def incomes():
-    year=-1
-    month=""
-    business=""
-    if 'year' in request.args:
+    year = -1
+    month = ""
+    business = ""
+    if "year" in request.args:
         year = int(request.args["year"])
     if "month" in request.args:
         month = request.args["month"]
@@ -39,12 +43,12 @@ def incomes():
         business = request.args["business"]
     query = "select year, month, business.name as business, income from Predicator.Finances left join Predicator.business on business.id=business"
     notfirst = False
-    # where year = 2323 and month = "ddf" and 
+    # where year = 2323 and month = "ddf" and
     if year != -1 or month != "" or business != "":
-       query = query + " where "
-       for arg in request.args:
+        query = query + " where "
+        for arg in request.args:
             if arg != "year" and arg != "month" and arg != "business":
-               continue
+                continue
             if notfirst:
                 query = query + " and "
             s = request.args[arg]
@@ -53,9 +57,13 @@ def incomes():
             if arg == "month":
                 query = query + f" month = '{s}'"
             if arg == "business":
-                   query = query + f" business.name = '{s}'"
-            notfirst = True   
+                query = query + f" business.name = '{s}'"
+            notfirst = True
     response = Response(
-        json.dumps(d.executeSomeQuery(query)), content_type="application/json; charset=utf-8")
+        json.dumps(d.executeSomeQuery(query)),
+        content_type="application/json; charset=utf-8",
+    )
     return response
+
+
 app.run()

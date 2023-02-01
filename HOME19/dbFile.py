@@ -4,9 +4,7 @@ import mysql.connector
 class DataHelp:
     def __init__(self):
         self.findb = mysql.connector.connect(
-            host='localhost',
-            user='python',
-            password='!QA2ws3ed=-2'
+            host="localhost", user="python", password="!QA2ws3ed=-2"
         )
 
     def executeSomeQuery(self, query):
@@ -21,10 +19,10 @@ class DataHelp:
         self.cursor.execute(query)
         self.findb.commit()
         self.cursor.close()
-        return 
+        return
 
 
 d = DataHelp()
-query = 'select year, month, business.name as business, income from Predicator.Finances left join Predicator.business on business.id=business'
+query = "select year, month, business.name as business, income from Predicator.Finances left join Predicator.business on business.id=business"
 r = d.executeSomeQuery(query=query)
 print(r)

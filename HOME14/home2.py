@@ -10,27 +10,25 @@
 ось икс - выставки
 ось игрек - участники"""
 
-import mysql.connector 
+import mysql.connector
 from itertools import groupby
 import matplotlib.pyplot as plt
 
 finddb = mysql.connector.connect(
-    host='localhost',
-    user='python',
-    password='!QA2ws3ed=-2'
+    host="localhost", user="python", password="!QA2ws3ed=-2"
 )
 cursor = finddb.cursor()
-query ='SELECT * FROM study.exhibit LEFT JOIN study.cat_exhibit_relation ON  exhibit.idexhibit = cat_exhibit_relation.exhibitid LEFT JOIN study.cats ON  cats.id = cat_exhibit_relation.catid  '
+query = "SELECT * FROM study.exhibit LEFT JOIN study.cat_exhibit_relation ON  exhibit.idexhibit = cat_exhibit_relation.exhibitid LEFT JOIN study.cats ON  cats.id = cat_exhibit_relation.catid  "
 
 cursor.execute(query)
 results = cursor.fetchall()
 print(results)
 
 
-x=list(map(lambda y:str(y[1]),results))
-y =list(map(lambda y:str(y[5]),results))
+x = list(map(lambda y: str(y[1]), results))
+y = list(map(lambda y: str(y[5]), results))
 
 plt.style.use("bmh")
 fig, axs = plt.subplots()
-axs.scatter(x,y, linewidth=5)
+axs.scatter(x, y, linewidth=5)
 plt.show()

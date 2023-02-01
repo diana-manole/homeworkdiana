@@ -1,15 +1,13 @@
-from flask import flask 
+from flask import flask
 import mysql.connector
 
 
 class DataHelp:
     def __init__(self):
         self.findb = mysql.connector.connect(
-            host='localhost',
-            user='python',
-            password='!QA2ws3ed=-2'
+            host="localhost", user="python", password="!QA2ws3ed=-2"
         )
-        #self.cursor = self.findb.cursor()
+        # self.cursor = self.findb.cursor()
 
     def executeSomeQuery(self, query):
         self.cursor = self.findb.cursor()

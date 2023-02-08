@@ -1,0 +1,11 @@
+{% extends "catsapps/cats.html" %}
+{% block content %}
+  <p>Catss</p>
+  <ul>
+    {% for cats in catss %}
+      <p><a href="{% url 'catsapps:cats' cats.id %}">{{ cats }}</a></p>
+    {% empty %}
+      <li>No cats have been added yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

@@ -1,15 +1,24 @@
-from django import forms 
-from .models import Topics, Entry
+from django import forms
+from .models import Name, Color, Cat
 
-class TopicForm(forms.ModelForm):
+
+class NameForm(forms.ModelForm):
     class Meta:
-        model = Topics
-        fields = ['text']
-        labels = {'text': ''}
+        model = Name
+        fields = ['name']
+        labels = {'name': ''}
         
-class EntryForm(forms.ModelForm):
+class ColorForm(forms.ModelForm):
     class Meta:
-        model = Entry
-        fields  = ['topic','text']
-        labels  = {'text': 'Entry', 'topic':'Edit topic'}
-        widgets = {'text': forms.Textarea(attrs={'cols':80})}
+        model = Color
+        fields = ["color"]
+        labels = {"Color": ""}
+               
+        
+class CatForm(forms.ModelForm):
+    class Meta:
+        model = Cat
+        fields = ["color","name"]
+        labels = {"color": "color","name": "name"}
+        
+        

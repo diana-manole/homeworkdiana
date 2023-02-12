@@ -1,9 +1,9 @@
-{% extends "catsapps/name.html" %}
+{% extends "catsapps/color.html" %}
 {% block content %}
-  <p>Cats</p>
+  <p>Colors</p>
   <ul>
-    {% for catss in CATSS %}
-        <p>{{ catss }} </p>
+    {% for colorbycats in COLORSBYCATS %}
+        <p>{{ colorbycats }} </p>
     {% empty %}
       <li>No name have been added yet.</li>
     {% endfor %}

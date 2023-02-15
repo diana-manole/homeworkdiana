@@ -40,7 +40,7 @@ def colorbycats(request, color_id):
 def cats(request):
     cats = Cat.objects.all()
     context = {"CATS": cats}
-    return render(request, "finapp/cats.html", context)
+    return render(request, "catsapps/cats.html", context)
 
 def catss(request, catss_id):
     catss = Cat.objects.filter(id=catss_id)

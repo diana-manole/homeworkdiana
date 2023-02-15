@@ -2,10 +2,10 @@
 {% block content %}
   <p>Colors</p>
   <ul>
-    {% for colorbycats in COLORSBYCATS %}
+    {% for colorbycats in COLORBYCATS %}
         <p>{{ colorbycats }} </p>
     {% empty %}
-      <li>No name have been added yet.</li>
+      <li>No color have been added yet.</li>
     {% endfor %}
   </ul>
 {% endblock content %}

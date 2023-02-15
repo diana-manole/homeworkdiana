@@ -3,8 +3,8 @@
 {% block content %}
     <p>This is overall incomes for all years and depts</p>
      <ul>
-        {% for name in NAME %}
-            <p><a href="{% url 'catsapps:name' name.id %}">{{ name }}</a></p> 
+        {% for behavor in BEHAVOR %}
+            <p><a href="{% url 'catsapps:behavor' behavor.id %}">{{ behavor }}</a></p> 
         {% empty %}
             <li>Call David to fill the list asap!</li>
         {% endfor %}

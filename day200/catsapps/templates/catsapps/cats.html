@@ -4,7 +4,7 @@
     <p>This is overall incomes for all years and depts</p>
      <ul>
         {% for cats in CATS %}
-            <p><a href="{% url 'catsapps:catss' catss.id %}">{{ cats }}</a></p> 
+            <p><a href="{% url 'catsapps:cats' cats.id %}">{{ cats }}</a></p> 
         {% empty %}
             <li>Call David to fill the list asap!</li>
         {% endfor %}

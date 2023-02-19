@@ -19,7 +19,9 @@ urlpatterns = [
     path("cats/", views.cats, name="cats"),
     path("catss/<int:catss_id>", views.catss, name="cats"), 
     
-    path("newcat/", views.add_cats, name="newcats"),
+     path("addCats/", views.add_cats, name="addCats"),
+    
+    
     
 ]
  # "name/"- просто ссылка, views должен совпадать с нашей созданной функцией в ней, name="names"- как мы будем обращаться по ссылке в html

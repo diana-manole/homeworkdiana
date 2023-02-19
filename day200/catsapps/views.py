@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Color,Cat,Kind,Behavor
+from .models import Color,Cat,Behavor,Kind
 from .forms import CatForm
 # Create your views here.
 def index(request):
@@ -42,8 +42,8 @@ def cats(request):
     context = {"CATS": cats}
     return render(request, "catsapps/cats.html", context)
 
-def catss(request, catss_id):
-    catss = Cat.objects.filter(id=catss_id)
+def catss(request, cats_id):
+    catss = Cat.objects.filter(id=cats_id)
     context = { "CATSS": catss}
     return render(request, "catsapps/catss.html", context) 
 
@@ -60,5 +60,5 @@ def add_cats(request):
             return redirect("catsapps:cats")
 
     mapper = {"FORM": form}
-    return render(request, "catsapps/addcats.html", mapper)
+    return render(request, "catsapps/addCats.html", mapper)
 

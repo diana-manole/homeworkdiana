@@ -1,5 +1,5 @@
 from django import forms
-from .models import Color, Cat,Kind,Behavor
+from .models import Color, Cat,Behavor,Kind
 
 class KindForm(forms.ModelForm):
     class Meta:
@@ -22,6 +22,6 @@ class ColorForm(forms.ModelForm):
 class CatForm(forms.ModelForm):
     class Meta:
         model = Cat
-        fields = ["color","kind","behavor"]
-        labels = {"color": "color","kind": "kind","behavor": "behavor"}
+        fields = ["color",'behavor','kind']
+        labels = {"color": "color",'behavor':'behavor','kind':'kind'}
         

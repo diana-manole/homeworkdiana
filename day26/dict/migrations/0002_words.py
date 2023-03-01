@@ -9,20 +9,39 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('dict', '0001_initial'),
+        ("dict", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Words',
+            name="Words",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('word', models.CharField(max_length=15, unique=True)),
-                ('transc', models.CharField(max_length=40)),
-                ('meaning', models.TextField(max_length=200)),
-                ('date_added', models.DateField(auto_now_add=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('cat', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dict.cats')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("word", models.CharField(max_length=15, unique=True)),
+                ("transc", models.CharField(max_length=40)),
+                ("meaning", models.TextField(max_length=200)),
+                ("date_added", models.DateField(auto_now_add=True)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "cat",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="dict.cats"
+                    ),
+                ),
             ],
         ),
     ]

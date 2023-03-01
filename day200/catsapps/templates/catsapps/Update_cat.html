@@ -1,0 +1,11 @@
+{% extends "catsapps/base.html" %}
+{% block content %}
+<p>update cat</p>
+
+<form action="{% url "catsapps:UpdateCat" cat.id %}" method="post">
+
+    {% csrf_token %}
+    {{ FORM.as_p }}
+    <button name="sumbit"> Apend </button>
+</form>
+{% endblock content %}

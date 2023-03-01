@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class DictConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'dict'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "dict"

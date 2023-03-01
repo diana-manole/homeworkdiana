@@ -8,17 +8,18 @@ class Cats(models.Model):
     name = models.CharField(max_length=15, unique=True)
     date_added = models.DateField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
     def __str__(self) -> str:
-        return f'{self.name}'
-    
+        return f"{self.name}"
+
+
 class Words(models.Model):
-    cat = models.ForeignKey(Cats,on_delete=models.CASCADE)
+    cat = models.ForeignKey(Cats, on_delete=models.CASCADE)
     word = models.CharField(max_length=15, unique=True)
     transc = models.CharField(max_length=40)
     meaning = models.TextField(max_length=200)
     date_added = models.DateField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
     def __str__(self) -> str:
-        return f'{self.word} : {self.meaning}'
+        return f"{self.word} : {self.meaning}"

@@ -1,0 +1,9 @@
+{% extends "cocktail/base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+    <ul class="list-group">
+        {% for cocktail in listcocktails %}
+        <li class="list-group-item">{{cocktail}}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

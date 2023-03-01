@@ -7,17 +7,20 @@ class Year(models.Model):
     def __str__(self):
         return f"{self.year}"
 
+
 class Month(models.Model):
     month = models.CharField(max_length=3)
 
     def __str__(self):
         return f"{self.month}"
 
+
 class Business(models.Model):
     business = models.CharField(max_length=10)
 
     def __str__(self):
         return f"{self.business}"
+
 
 class Incomes(models.Model):
     year = models.ForeignKey(Year, on_delete=models.CASCADE, primary_key=False)

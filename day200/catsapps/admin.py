@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Color,Kind,Behavor,Cat
+from .models import Color, Kind, Behavor, Cat
 
 # Register your models here.
 

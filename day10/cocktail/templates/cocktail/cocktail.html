@@ -1,0 +1,15 @@
+{% extends "cocktail/base.html" %}
+{% load bootstrap4 %}
+{% block page_header %}
+  <h2>Добавьте свой любимый коктейль</h2>
+  <p>
+    <a href="{% url 'cocktail:addcocktail'  %}" >Добавить коктейль</a>
+  </p>
+{% endblock page_header %}
+{% block content %}
+    <ul class="list-group">
+        {% for cocktail in cocktails %}
+        <li class="list-group-item">{{cocktail}}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

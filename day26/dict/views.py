@@ -5,17 +5,20 @@ from .forms import CatFORM, WordFORM
 
 # Create your views here.
 
+
 def index(request):
     return render(request, "dict/index.html")
+
 
 @login_required
 def cats(request):
     cats = Cats.objects.filter(author=request.user.id).order_by("name")
     mapper = {"cats": cats}
-    return render(request,"dict/cats.html",mapper)
+    return render(request, "dict/cats.html", mapper)
+
 
 def addcat(request):
-    if request.method != 'POST':
+    if request.method != "POST":
         form = CatFORM()
     else:
         form = CatFORM(data=request.POST)
@@ -24,18 +27,19 @@ def addcat(request):
             new_cat = form.save(commit=False)
             new_cat.author = request.user
             new_cat.save()
-            return redirect('dict:cats')
-    context = {'form': form}
-    return render(request, 'dict/newcat.html', context)
+            return redirect("dict:cats")
+    context = {"form": form}
+    return render(request, "dict/newcat.html", context)
+
 
 def words(request):
     words = Words.objects.filter(author=request.user.id).order_by("word")
     mapper = {"words": words}
-    return render(request,"dict/words.html",mapper)
+    return render(request, "dict/words.html", mapper)
 
 
 def addword(request):
-    if request.method != 'POST':
+    if request.method != "POST":
         form = WordFORM()
     else:
         form = WordFORM(data=request.POST)
@@ -44,11 +48,12 @@ def addword(request):
             new_word = form.save(commit=False)
             new_word.author = request.user
             new_word.save()
-            return redirect('dict:words')
-    context = {'form': form}
-    return render(request, 'dict/newword.html', context)
+            return redirect("dict:words")
+    context = {"form": form}
+    return render(request, "dict/newword.html", context)
+
 
 def train(request):
     words = Words.objects.filter(author=request.user.id).order_by("?")[0:3]
     mapper = {"words": words}
-    return render(request,"dict/train.html",mapper)
+    return render(request, "dict/train.html", mapper)

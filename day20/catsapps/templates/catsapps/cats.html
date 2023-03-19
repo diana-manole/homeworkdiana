@@ -4,7 +4,7 @@
 {% block content %}
   <ul class="list-group">
         {% for cats in CATS %}
-            <p>{{ cats }} <a href="{% url 'catsapps:Updatecat' cats.id %}" role= "button" class="btn-success">
+            <p>{{ cats }}</p> <a href="{% url 'catsapps:UpdateCat' cats.id %}"> Add </h3>
         {% empty %}
             <li>Call David to fill the list asap!</li>
         {% endfor %}

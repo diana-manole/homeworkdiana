@@ -52,12 +52,6 @@ def cats(request):
     return render(request, "catsapps/cats.html", context)
 
 
-def catss(request, cats_id):
-    catss = Cat.objects.filter(id=cats_id)
-    context = {"CATSS": catss}
-    return render(request, "catsapps/catss.html", context)
-
-
 def add_cats(request):
 
     if request.method != "POST":

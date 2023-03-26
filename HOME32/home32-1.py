@@ -5,8 +5,9 @@ from threading import Thread
 from time import sleep
 
 class readfile(Thread):
-    def __init__(self):
+    def __init__(self,filename):
         Thread.__init__(self)
+        self.fi = filename
         
     def replace( self ,filename):
         print(f'process {filename}')
@@ -14,9 +15,10 @@ class readfile(Thread):
             content = f.read()
         content = ''.join ([x for x in content if x.isalpha() or x == ' '])
         content = content.split()
-        return [content.lower(),1]
+        #return [content.lower(),1]
+        
                    
-            
+readfile()        
         
 mythread = readfile("advs.txt")
 mythread.start()

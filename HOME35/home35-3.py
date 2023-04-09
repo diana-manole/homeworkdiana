@@ -25,7 +25,7 @@ print(infinite())
    return  
 print(infinite([1,2,3],2)) """
 
-def infinite (list,tries):
+""" def infinite (list,tries):
    l=[x for x in range(1,4)]
    tries=tries-1
    list.extend(l*tries)
@@ -34,3 +34,12 @@ def infinite (list,tries):
    return  
 
 print(infinite([1,2,3],2))
+ """
+
+def infinite(list, tries):
+   for x in list:
+      for _ in range(tries):
+          yield x
+
+for x in infinite( [1, 2, 3],6):
+    print(x)

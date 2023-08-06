@@ -35,12 +35,7 @@ if __name__ == "__main__":
 btn = Button(window, text="Go!",width=3,height=2,bg="pink",command=main)  
 btn.pack()
     
-def new_win():
-    win=Toplevel(window)
-    label=Label(win,
-                text="", 
-                font=20)
-    label.pack()
+
     
 def exit_app():
     window.destroy()
@@ -58,6 +53,17 @@ main_menu.add_cascade(label='Help', menu=second_item)
 second_item.add_command(label='About',command=new_win)
 second_item.add_separator()
 second_item.add_command(label='Extra')
+
+f = open ("read.txt")
+r=print(f.read())
+
+def new_win():
+    win=Toplevel(window)
+    label=Label(win,
+                text="", 
+                font=20)
+    
+    label.pack()
 window.mainloop()
 
 

@@ -1,5 +1,6 @@
 from tkinter import *  
 #from text_recogn import *
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import easyocr
     
 window = Tk()  
@@ -19,9 +20,7 @@ entry.pack()
 
 def new_win():
     win=Toplevel(window)
-    get=file.get()
     label=Label(win, text='', font=20)
-    label["text"]=get
     label.pack()
     
 def exit_app():
@@ -57,15 +56,11 @@ def text_reco(file_path,text_fname='result.txt'):
 
 def main():
     get=file.get()
-    file_path = get
+    file_path = input("Enter a file name:")
     print(text_reco(file_path=file_path, text_fname="read.txt"))
     
 if __name__ == "__main__":
     main()
-
-
-
-
 
 window.mainloop()
 
